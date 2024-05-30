@@ -17,13 +17,13 @@ function InvoiceDetail() {
     const fetchData = async () => {
 
       try {
-        const invoiceResponse = await axios.get(`http://localhost:3000/invoices/${invoiceId}`)
+        const invoiceResponse = await axios.get(`https://my-json-server-1g8i.onrender.com/invoices/${invoiceId}`)
         setInvoice(invoiceResponse.data)
 
-        const schoolResponse = await axios.get(`http://localhost:3000/schools/${invoiceResponse.data.schoolId}`)
+        const schoolResponse = await axios.get(`https://my-json-server-1g8i.onrender.com/schools/${invoiceResponse.data.schoolId}`)
         setSchool(schoolResponse.data)
 
-        const collectionsResponse = await axios.get('http://localhost:3000/collections/')
+        const collectionsResponse = await axios.get('https://my-json-server-1g8i.onrender.com/collections/')
         setCollections(collectionsResponse.data.filter(collection => collection.invoiceId == invoiceId))
       } catch (error) {
         console.error(error)
@@ -34,7 +34,7 @@ function InvoiceDetail() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/invoices/${invoiceId}`)
+      await axios.delete(`https://my-json-server-1g8i.onrender.com/invoices/${invoiceId}`)
       navigate(-1)
     } catch (error) {
       console.error(error)

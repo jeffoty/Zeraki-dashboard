@@ -13,11 +13,11 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const invoiceResponse = await axios.get("http://localhost:3000/invoices")
+        const invoiceResponse = await axios.get("https://my-json-server-1g8i.onrender.com/invoices")
         setInvoices(invoiceResponse.data)
-        const schoolResponse = await axios.get("http://localhost:3000/schools")
+        const schoolResponse = await axios.get("https://my-json-server-1g8i.onrender.com/schools")
         setSchools(schoolResponse.data)
-        const collectionResponse = await axios.get("http://localhost:3000/collections")
+        const collectionResponse = await axios.get("https://my-json-server-1g8i.onrender.com/collections")
         setCollections(collectionResponse.data)
       } catch (error) {
         console.error(error)

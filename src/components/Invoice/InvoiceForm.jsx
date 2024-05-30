@@ -47,11 +47,11 @@ function InvoiceForm({ schoolId, handleFormSubmit, schoolTotal }) {
         status: calculatedBalance > 0 ? "Pending" : "Completed",
         daysUntilDue: calculateDaysUntilDue(formData.creationDate, formData.dueDate)
       };
-      const response = await axios.post('http://localhost:3000/invoices', data);
+      const response = await axios.post('https://my-json-server-1g8i.onrender.com/invoices', data);
       handleFormSubmit(response.data)
 
       if (calculatedBalance > 0) {
-        axios.patch(`http://localhost:3000/schools/${schoolId}`, {
+        axios.patch(`https://my-json-server-1g8i.onrender.com/schools/${schoolId}`, {
           total: newSchoolTotal
         })
       }

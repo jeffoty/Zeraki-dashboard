@@ -14,10 +14,10 @@ function SchoolDetail() {
 
     const fetchData = async () => {
       try {
-        const schoolResponse = await axios.get(`http://localhost:3000/schools/${id}`)
+        const schoolResponse = await axios.get(`https://my-json-server-1g8i.onrender.com/schools/${id}`)
         setSchool(schoolResponse.data)
 
-        const invoicesResponse = await axios.get(`http://localhost:3000/invoices?schoolId=${id}`)
+        const invoicesResponse = await axios.get(`https://my-json-server-1g8i.onrender.com/invoices?schoolId=${id}`)
         setInvoices(invoicesResponse.data)
       } catch (error) {
         console.error(error)
@@ -34,7 +34,7 @@ function SchoolDetail() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/schools/${id}`)
+      await axios.delete(`https://my-json-server-1g8i.onrender.com/schools/${id}`)
       window.location.href = '/schools';
     } catch (error) {
       console.error(error)

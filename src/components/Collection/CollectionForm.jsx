@@ -29,7 +29,7 @@ function CollectionForm({ invoiceId, handleFormSubmit, invoiceBalance, invoiceAm
         amount: parsedAmount,
       };
 
-      axios.post('http://localhost:3000/collections', data)
+      axios.post('https://my-json-server-1g8i.onrender.com/collections', data)
         .then(resp => {
           console.log("coll submitted", resp.data)
           handleFormSubmit(resp.data)
@@ -40,7 +40,7 @@ function CollectionForm({ invoiceId, handleFormSubmit, invoiceBalance, invoiceAm
 
       if (parsedAmount === invoiceBalance) {
         // update invoice balances
-        axios.patch(`http://localhost:3000/invoices/${invoiceId}`, {
+        axios.patch(`https://my-json-server-1g8i.onrender.com/invoices/${invoiceId}`, {
           status: "Completed",
           balance: 0,
           paidAmount: invoice.amount,
@@ -50,13 +50,13 @@ function CollectionForm({ invoiceId, handleFormSubmit, invoiceBalance, invoiceAm
         // update school balances
         const newSchoolBalance = schoolBalance - parsedAmount
         console.log(newSchoolBalance);
-        axios.patch(`http://localhost:3000/schools/${schoolId}`, {
+        axios.patch(`https://my-json-server-1g8i.onrender.com/schools/${schoolId}`, {
           balance: newSchoolBalance
         })
       } else {
         const newBalance = invoiceBalance - parsedAmount
         const newPaidAmount = invoiceAmountPaid() + parsedAmount
-        axios.patch(`http://localhost:3000/invoices/${invoiceId}`, {
+        axios.patch(`https://my-json-server-1g8i.onrender.com/invoices/${invoiceId}`, {
           balance: newBalance,
           paidAmount: newPaidAmount,
         }).then(resp => console.log("partial payment", resp.data))

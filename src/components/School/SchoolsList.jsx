@@ -8,7 +8,7 @@ function SchoolsList() {
   const [schools, setSchools] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:3000/schools")
+    axios.get("https://my-json-server-1g8i.onrender.com/schools")
       .then(resp => setSchools(resp.data))
   }, [])
 

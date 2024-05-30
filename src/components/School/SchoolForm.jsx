@@ -23,7 +23,7 @@ function SchoolForm({ handleFormSubmit }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/schools', formData);
+      const response = await axios.post('https://my-json-server-1g8i.onrender.com/schools', formData);
       handleFormSubmit(response.data)
       console.log(response.data);
     } catch (error) {
