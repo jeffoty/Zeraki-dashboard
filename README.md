@@ -1,16 +1,31 @@
-# Dashboard Project
-in the terminal run: npm install to install all node modules required by the project.
-Next run: npm install -D tailwindcss npx tailwindcss init to install tailwindcss and configure which has been done.
-# Setup and run server
-Run: npm install -g json-server to instal json server in your machine.
-Then run: json-server --watch public/data.json --port 3001 to start the json server.
+# Zeraki Dashboard
 
-# Run react app
-Run: npm run dev to start the react server.
+## Project Overview
 
-# Requirements
-Node version 16
+This project is a dashboard for managing schools, displaying metrics, and handling invoices and collections. The dashboard includes a sidebar for navigation with links to the main dashboard and a school management section.
 
-to be continued...
+## Requirements
+
+- Node.js version 16
+
+## Installation
+
+### Step 1: Install JSON Server and run
+```bash
+npm install -g json-server
+
+json-server --watch mock/data.json --port 3000
+
+```
+
+### step 2: Install react packages and run
+```bash
+json-server --watch mock/data.json --port 3000
+
+npm install
+
+npm run dev
+```
+
 
 
